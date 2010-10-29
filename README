@@ -1,0 +1,11 @@
+Standalone program for computing autocorrelation functions
+
+Created by Peter Kosovan 2005 - ....
+
+The program uses the fast correlation algorithm describe in the book 
+of D. Frenkel and B. Smit: Understanding molecular simulation, chapter
+4.4.2: Order-n algorithm to measure correlations.
+
+Note that this algorithm cannot be used as is to compute any autocorrelation
+function. For those, which are not linearly additive, like MSD, corretction
+have to be made to avoid systematic errors.
