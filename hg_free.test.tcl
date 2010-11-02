@@ -7,7 +7,7 @@ set type_node 0;
 set type_mon 1;
 
 # diffusing labels
-set n_labels 5;
+set n_labels 50;
 set type_label 2;
 set q_label 0;
 
@@ -26,7 +26,7 @@ set gamma 2.0;
 thermostat langevin $temperature $gamma;
 # overall simulation time 
 set tot_time 20000; # total simulation time in reduced units
-set round_time 50; # time elapsed between two integration rounds
+set round_time 1; # time elapsed between two integration rounds
 set int_times [expr int($tot_time/$round_time)];
 set int_steps [expr int($round_time/$time_step)];;
 # warmup parameters
@@ -85,7 +85,7 @@ close $vmd_file
 inter 0 FENE $fene_k $fene_cut;
 
 # set the wca interaction 
-#inter $type_label $type_label lennard-jones $wca_epsilon $wca_sigma $wca_cut $wca_shift $wca_off;
+inter $type_label $type_label lennard-jones $wca_epsilon $wca_sigma $wca_cut $wca_shift $wca_off;
 
 # setup the polymer lattice
 set n_part_types 0;
@@ -133,10 +133,10 @@ set start_time [clock seconds];
 puts "start at $start_time (HW clock)";
 set time [setmd time];
 for {set i 0} {$i<$int_times} {incr i} {
-  puts "integration round $i"; flush stdout;
+  #puts "integration round $i"; flush stdout;
   integrate $int_steps;
   set time [setmd time];
-  if {![expr $i%10]} { puts -nonewline "Main run $i, time=$time\n"; flush stdout; }
+  if {![expr $i%100]} { puts -nonewline "Main run $i, time=$time\n"; flush stdout; }
   # we set some store_time by default but it shoudl be checked afterwards!
   #if {$time>$store_time} { analyze append; } 
   if {$time>$store_time} { 
