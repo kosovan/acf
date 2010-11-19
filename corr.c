@@ -1,4 +1,6 @@
 /* C O R R E L A T O R Version 0.9, 11.3.2006 */
+
+/* This is really an ancient code and has nothing to do with autocorr anymore, except for sharing logical structure of the groupping */
 #include<corr.h>
 
 #define TEST 1
