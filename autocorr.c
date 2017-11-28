@@ -3,7 +3,7 @@
 /* Autocorrelator code for msd */
 
 /**
-
+test
 The program computes autocorrelation function using the blocking 
 algorithm described in Frenkel and Smit: Understanding molecular
 simulation, Academic Press, Sand Diego, 2002
